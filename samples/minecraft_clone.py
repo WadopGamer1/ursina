@@ -1,13 +1,6 @@
 '''
 Disclaimer: This solution is not scalable for creating a big world.
-Creating a game like Minecraft requires specialized knowledge and is not as easy
-to make as it looks.
-
-You'll have to do some sort of chunking of the world and generate a combined mesh
-instead of separate blocks if you want it to run fast. You can use the Mesh class for this.
-
-You can then use blocks with colliders like in this example in a small area
-around the player so you can interact with the world.
+But it can make a deep game chunk.
 '''
 
 from ursina import *
@@ -32,18 +25,16 @@ class Voxel(Button):
         )
 
 
-    # def input(self, key):
-    #     if self.hovered:
-    #         if key == 'left mouse down':
-    #             voxel = Voxel(position=self.position + mouse.normal)
-    #
-    #         if key == 'right mouse down':
-    #             destroy(self)
-
-
 for z in range(8):
     for x in range(8):
-        voxel = Voxel(position=(x,0,z))
+        voxel = Voxel(position=(x,0,z))     #This area here determines how deep you want your chunk!
+        voxel = Voxel(position=(x,-1,z))
+        voxel = Voxel(position=(x,-2,z))
+        voxel = Voxel(position=(x,-3,z))
+        voxel = Voxel(position=(x,-4,z))
+        voxel = Voxel(position=(x,-5,z))
+        voxel = Voxel(position=(x,-6,z))
+        voxel = Voxel(position=(x,-7,z))
 
 
 def input(key):
